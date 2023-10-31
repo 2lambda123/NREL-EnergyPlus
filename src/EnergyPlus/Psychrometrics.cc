@@ -324,11 +324,11 @@ namespace Psychrometrics {
 
         DISABLE_WARNING_PUSH
         DISABLE_WARNING_STRICT_ALIASING
-        // cppcheck-suppress invalidPointerCast
+        // cppcheck-suppress[invalidPointerCast,unmatchedSuppression]
         std::uint64_t Tdb_tag = *reinterpret_cast<std::uint64_t const *>(&Tdb) >> Grid_Shift;
-        // cppcheck-suppress invalidPointerCast
+        // cppcheck-suppress[invalidPointerCast,unmatchedSuppression]
         std::uint64_t W_tag = *reinterpret_cast<std::uint64_t const *>(&W) >> Grid_Shift;
-        // cppcheck-suppress invalidPointerCast
+        // cppcheck-suppress[invalidPointerCast,unmatchedSuppression]
         std::uint64_t Pb_tag = *reinterpret_cast<std::uint64_t const *>(&Pb) >> Grid_Shift;
         DISABLE_WARNING_POP
 
