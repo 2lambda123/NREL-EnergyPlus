@@ -5343,6 +5343,11 @@ void DayltgGlare(EnergyPlusData &state,
     }
 
     // Glare index (adding 0.000001 prevents LOG10 (0))
+    // Yet CppCheck is still complaining that the log argument may be zero.  I don't think it could be,
+    // or this would have already been failing wildly.  This assertion likely doesn't add anything right now,
+    // but perhaps it could be helpful for debugging something in the future.
+    assert(GTOT > 0);
+    // cppcheck-suppress invalidFunctionArg
     GLINDX = 10.0 * std::log10(GTOT + 0.000001);
     // Set glare index to zero for GTOT < 1
     GLINDX = max(0.0, GLINDX);

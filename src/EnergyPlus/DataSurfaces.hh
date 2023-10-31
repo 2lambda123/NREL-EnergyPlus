@@ -788,7 +788,7 @@ namespace DataSurfaces {
 
         Convect::SurfOrientation convOrientation = Convect::SurfOrientation::Invalid; // Surface orientation for convection calculations
 
-        SurfaceCalcHashKey calcHashKey;        // Hash key used for determining if this surface requires unique calculations.
+        SurfaceCalcHashKey calcHashKey = {};   // Hash key used for determining if this surface requires unique calculations.
         bool IsSurfPropertyGndSurfacesDefined; // true if ground surfaces properties are listed for an external surface
         int SurfPropertyGndSurfIndex;          // index to a ground surfaces list (defined in SurfaceProperties::GroundSurfaces)
         bool UseSurfPropertyGndSurfTemp;       // true if at least one ground surface temperature schedules is specified

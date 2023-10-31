@@ -1173,6 +1173,11 @@ void ConstructionProps::calculateExponentialMatrix()
     // Step 2, page 128:  Find smallest integer k such that
     // AMatRowNormMax< = 2^k
 
+    // CppCheck is complaining that the log argument may be zero, but I don't think it actually can,
+    // or this would have already been failing wildly.  This assertion likely doesn't add anything right now,
+    // but perhaps it could be helpful for debugging something in the future.
+    assert(AMatRowNormMax > 0);
+    // cppcheck-suppress invalidFunctionArg
     k = int(std::log(AMatRowNormMax) / std::log(2.0)) + 1; // Autodesk:Num Handle AMatRowNormMax=0
 
     // Step 3, page 128:  Divide (AMat*delt) by 2^k.  This section of code
